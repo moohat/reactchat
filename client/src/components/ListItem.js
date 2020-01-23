@@ -3,6 +3,7 @@ import axios from 'axios';
 import ChatItem from './ChatItem';
 import openSocket from 'socket.io-client';
 
+
 const API_URL = 'http://localhost:3001/api/chat'
 
 
@@ -50,14 +51,17 @@ class ListItem extends Component{
 
     render(){
         const data = this.state.chats.map((params, index) =>
-        <ChatItem
-            key={index}
-            _id = {params._id}
-            user={params.user}
-            message={params.message}
-            dateTime={params.dateTime}
+        
+        <ChatItem        
+        key={index}
+        _id = {params._id}
+        user={params.user}
+        message={params.message}
+        dateTime={params.dateTime}
         />
-    )
+        
+        
+        )
         return(
             <div>
                 <div id="myDIV">

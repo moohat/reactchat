@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import openSocket from 'socket.io-client';
+// import ReactMarkdown from 'react-markdown';
 
 class ChatForm extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class ChatForm extends Component {
     this.handleChangeMessage = this.handleChangeMessage.bind(this); //binding handleChangeUser
     this.handleSubmit = this.handleSubmit.bind(this); //binding handleSubmit
     this.handleCancle = this.handleCancle.bind(this); //binding handleSubmit
+
   }
 
   handleChangeUser(event) {
@@ -60,6 +62,7 @@ class ChatForm extends Component {
   }
 
   render() {
+    // const input = '*test markdown*';
     return (
       <div className="container mt-2 d-flex p-3 flex-column borderless">
         <form className="form" onSubmit={this.handleSubmit}>
@@ -94,6 +97,7 @@ class ChatForm extends Component {
           <button type="button" className="btn btn-danger" onClick={this.handleCancle}>
             Reset
           </button>
+          
         </form>
       </div>
     );

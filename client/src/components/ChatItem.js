@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import openSocket from 'socket.io-client';
 import "./ChatItem.css";
+import ReactMarkdown from 'react-markdown';
+
 
 
 export default class ChatItem extends Component{
@@ -58,11 +60,12 @@ export default class ChatItem extends Component{
           <div className="panel-heading">
             <h2 className="panel-title">{this.props.user}</h2>
           </div>
-
+          
 
 
           <div className="panel-body">
-            {this.props.message}
+            {/* {this.props.message} */}
+          <ReactMarkdown source={this.props.message} />
           </div>
 
 
