@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.post('/', function (req, res) {
+router.post('/add', function (req, res) {
     const { user, message, dateTime, chatId } = req.body;
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

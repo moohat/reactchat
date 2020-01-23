@@ -12,7 +12,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="../src/components/ChatForm.jsx"
           target="_blank"
           rel="noopener noreferrer"
         >
