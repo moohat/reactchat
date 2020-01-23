@@ -38,7 +38,7 @@ describe('chats', function () {
 
     it('seharusnya mendapatkan semua daftar tugas yang ada di table Chats dengan metode GET', function (done) {
         chai.request(server)
-            .get('/chat')
+            .get('/api/chat')
             .end(function (err, res) {
                 res.should.have.status(200);
                 res.should.be.json;
@@ -84,10 +84,10 @@ describe('chats', function () {
 
     it('seharusnya menghapus satu chat id path /chat/<id> DELETE', function(done) {
         chai.request(server)
-        .get('/chat')
+        .get('/api/chat')
         .end(function(err, res){
           chai.request(server)
-          .delete('/chat/'+res.body[0]._id)
+          .delete('/api/chat/'+res.body[0]._id)
           .end(function(error, response){
             response.should.have.status(201);
             response.should.be.json;
