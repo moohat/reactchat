@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import ChatItem from './ChatItem';
-// import openSocket from 'socket.io-client';
+import openSocket from 'socket.io-client';
 
 const API_URL = 'http://localhost:3001/api/chat'
 
@@ -16,18 +16,18 @@ class ListItem extends Component{
     }
 
     componentDidMount(){
-        // const socket = openSocket('http://localhost:3002/');
+        const socket = openSocket('http://localhost:3002/');
         
         // //this socket get delete message
-        // socket.on('receive-dm', () =>{
-        //     console.log('socket receive dm');
-        //     axios.get(API_URL)
-        //     .then(res =>{
-        //         this.setState({chat: [...res.data]});
-        //         console.log('dataState > ', res.data);                
-        //     })
-        //     .catch(err => console.log(err));            
-        // });
+        socket.on('receive-dm', () =>{
+            console.log('socket receive dm');
+            axios.get(API_URL)
+            .then(res =>{
+                this.setState({chats: [...res.data]});
+                console.log('dataState > ', res.data);                
+            })
+            .catch(err => console.log(err));            
+        });
 
         //get data from datachat router datachat
         axios.get(API_URL)
@@ -37,14 +37,14 @@ class ListItem extends Component{
             
         }).catch(err => console.log(err));
 
-       // This Socket receive message
-    //    socket.on('receive-message', msg => {
-    //     console.log('recived', msg);
+    //    This Socket receive message
+       socket.on('receive-message', msg => {
+        console.log('recived', msg);
 
-    //     this.setState({
-    //         chat: [...this.state.chat, msg]
-    //     });
-    // });
+        this.setState({
+            chats: [...this.state.chats, msg]
+        });
+    });
 
     }
 

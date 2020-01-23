@@ -90,8 +90,9 @@ class ChatForm extends Component {
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
+          
           <button type="button" className="btn btn-danger" onClick={this.handleCancle}>
-            Cancel
+            Reset
           </button>
         </form>
       </div>
