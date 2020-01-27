@@ -5,14 +5,13 @@ var logger = require('morgan');
 var cors = require('cors');
 
 
-// Using Node.js `require()`
+//JIKA MONGOOSE DITARO DI FILE INI
 // const mongoose = require('mongoose');
-
 // mongoose.connect('mongodb://127.0.0.1:27017/reactchat', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true
 // });
-/**socket */
+
 /** socket */
 const app = express();
 const http = require("http").Server(app);

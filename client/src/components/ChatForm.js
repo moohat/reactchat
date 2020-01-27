@@ -8,19 +8,24 @@ class ChatForm extends Component {
     super(props);
     this.state = {user: '', message:''}
 
-    this.handleChangeUser = this.handleChangeUser.bind(this); //binding handleChangeUser
-    this.handleChangeMessage = this.handleChangeMessage.bind(this); //binding handleChangeUser
+    // this.handleChangeUser = this.handleChangeUser.bind(this); //binding handleChangeUser
+    // this.handleChangeMessage = this.handleChangeMessage.bind(this); //binding handleChangeUser
     this.handleSubmit = this.handleSubmit.bind(this); //binding handleSubmit
-    this.handleCancle = this.handleCancle.bind(this); //binding handleSubmit
+    // this.handleCancle = this.handleCancle.bind(this); //binding handleSubmit
 
   }
 
-  handleChangeUser(event) {
-    this.setState({ user: event.target.value });
-  }
+  // handleChangeUser(event) {
+  //   this.setState({ user: event.target.value });
+  // }
 
-  handleChangeMessage(event){
-    this.setState({ message: event.target.value})
+  // handleChangeMessage(event){
+  //   this.setState({ message: event.target.value})
+  // }
+
+  //handle input dengan mengambil attribute name, misal tag input user name="user" tag input message name="message"
+  handleInputChange = (event) =>{
+    this.setState({[event.target.name]:event.target.value})
   }
 
   handleSubmit(event) {
@@ -74,7 +79,7 @@ class ChatForm extends Component {
               value={this.state.user}
               className="form-control"
               placeholder="type username"              
-              onChange={this.handleChangeUser}
+              onChange={this.handleInputChange}
               required
             />
           </div>
@@ -86,7 +91,7 @@ class ChatForm extends Component {
               value={this.state.message} 
               className="form-control"
               placeholder="type your messages here"
-              onChange={this.handleChangeMessage}
+              onChange={this.handleInputChange}
               required
             />
           </div>
